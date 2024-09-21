@@ -94,7 +94,7 @@ $(document).ready(function() {
     // Function to fetch subjects from the API
     function fetchSubjects() {
         return $.ajax({
-            url: 'http://localhost/ilibrary/back-end/api-ocr/v1/subjects',
+            url: 'http://localhost/ilibrary/admin-side/back-end/api-ocr/v1/subjects',
             method: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -237,14 +237,21 @@ $(document).ready(function() {
         img.src = URL.createObjectURL(imageFile);
     }
 
+    let fileInputTriggered = false;
+
     // Handle the upload button click event
     $('#upload-btn').click(function() {
-        // Show the upload instructions modal first
-        $('#uploadInstructionsModal').modal('show');
+        if (!fileInputTriggered) {
+            // Show the upload instructions modal first
+            $('#uploadInstructionsModal').modal('show');
+            fileInputTriggered = true;
+        }
 
         $('#got-it-btn').one('click', function() {
             // Once the user clicks "Got It", trigger the file input to select the file
             $('#fileInput').click();
+            // Reset trigger after file selection
+            fileInputTriggered = false;
         });
     });
 
@@ -258,6 +265,7 @@ $(document).ready(function() {
 
     // Handle file selection when a file is chosen
     $('#fileInput').change(async function(event) {
+        fileInputTriggered = false;
         var file = event.target.files[0];
 
         if (file) {
