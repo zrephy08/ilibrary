@@ -138,8 +138,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%; /* Adjust as needed */
-    max-width: 600px; /* Adjust as needed */
+    width: 80%;
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
     margin-top: 20px !important;

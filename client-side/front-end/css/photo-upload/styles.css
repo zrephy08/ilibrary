@@ -134,10 +134,24 @@ body {
 
 /* --- Book image center --- */
 .image-container {
-    width: 80%; /* Adjust as needed */
-    max-width: 600px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
+    margin-top: 20px !important;
+}
+
+.image-container img {
+    width: 50%;
+    height: auto;
+}
+
+.image-container p{
+    margin-top: 20px;
 }
 
 /* --- book result center(testing) --- */
