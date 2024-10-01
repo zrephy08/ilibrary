@@ -6,7 +6,7 @@ header('Content-type: application/json');
 $api = "v1";
 $entity = "admin_acc";
 
-include 'db_connection.php';
+include '../db_connection.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 
