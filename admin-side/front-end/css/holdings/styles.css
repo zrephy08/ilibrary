@@ -1,0 +1,184 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+/* Vertical navigation bar */
+.nav-sidebar {
+    width: 250px;
+    background-color: #FEB440;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo container */
+.logo-container {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 60%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Navigation links */
+.nav-sidebar a {
+    color: black;
+    text-align: left;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-sidebar a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.nav-sidebar a:hover {
+    color: white;
+    background-color: #C07500;
+}
+
+/* Active link style */
+.nav-sidebar a.active {
+    color: white;
+    background-color: #C07500;
+}
+
+/* Main content area */
+.main-content {
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top navigation bar */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 60px 50px 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Search bar in top navigation */
+.top-search-bar {
+    display: flex;
+    flex-grow: 1;
+    max-width: 40%; /* Set the maximum width of the search bar */
+}
+
+.top-search-bar .input-group {
+    width: 40%;
+}
+
+.top-search-bar .form-control {
+    border-radius: 0 0 0 0;
+    border: 1px solid #ddd;
+    border-left: 0px;
+    padding: 15px 15px 15px 5px;
+    transition: border-color 0.3s ease-in-out;
+    height: 50px;
+    box-shadow: none; /* Remove default shadow */
+}
+
+.top-search-bar .form-control:focus {
+    outline: none;
+    box-shadow: none; /* Ensures no shadow when focused */
+}
+
+.input-group-append .input-group-text {
+    border-radius: 0 20px 20px 0;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    height: 50px;
+    width: 45px;
+    cursor: pointer;
+}
+
+.input-group-append .input-group-text:hover {
+    background-color: #ccc;
+}
+
+/* Notification and profile icons */
+.top-nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav-icons .top-icon {
+    color: #343a40;
+    font-size: 24px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.top-nav-icons .top-icon:hover {
+    color: #C07500;
+}
+
+/* Input group append styling */
+.input-group-append .input-group-text {
+    border-radius: 0 0 0 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-right: 0px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.input-group-append .input-group-text:hover {
+    background-color: #ccc;
+}
+
+/* Content area */
+.holdings-table-container{
+    margin: 30px;
+}
+.header{
+    padding: 20px;
+    background-color: #FEB440;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;  
+}
+.header h2{
+    padding-top: 5px;
+    padding-left: 40px;
+}
+.add-holding-btn {
+    margin-right: 40px;
+    margin-left: 40px;
+    padding: 10px 20px;
+    flex-direction: row;
+    background-color: #f3f3f3;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex; /* Align icon and text */
+    align-items: center; /* Center icon and text vertically */
+}
+.add-holding-btn i {
+    margin-right: 15px;
+    font-size: 25px;
+}
+.add-holding-btn p {
+    margin: 0; /* Remove default margin */
+    line-height: 1; /* Optional: Adjust line height */
+    font-size: 16px; /* Optional: Set font size */
+}
+.add-holding-btn:hover {
+    color: black;
+    background-color: #cfcfcf; /* Darken on hover */
+}
