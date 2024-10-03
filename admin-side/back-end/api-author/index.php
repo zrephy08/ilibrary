@@ -44,6 +44,7 @@ if ($method == 'POST') {
         ];
         http_response_code(400); // Bad Request
     }
+    echo json_encode($response);
 } else if($method == 'GET'){
     $param = $_REQUEST['p'];
     $param = rtrim($param, "/");
@@ -115,6 +116,73 @@ if ($method == 'POST') {
         echo json_encode($response);
         http_response_code(400); // Bad Request
     }
+} else if ($method == 'PUT') {
+    $param = $_REQUEST['p'];
+    $param = rtrim($param, "/");
+    $uri = explode('/', $param);
+    $cnt = count($uri);
+
+    if ($cnt == 3 && $uri[0] == $api && $uri[1] == $entity) {
+        // Get the publisher ID from the URL
+        $authId = $uri[2];
+
+        $json = file_get_contents('php://input');
+        $_PUT = json_decode($json, true);
+
+        $auth_id = $_PUT['auth_id'];
+        $fname = $_PUT['fname'];
+        $lname = $_PUT['lname'];
+        $bio = $_PUT['bio'];
+
+        // Prepare the SQL update statement
+        $query = "UPDATE $entity SET author_id = '$auth_id', fname = '$fname', lname = '$lname', bio = '$bio' WHERE author_id = '$authId'";
+        
+        if (mysqli_query($connection, $query)) {
+            // Successful insertion
+            $response = [
+                'msg' => 'Author updated successfully.',
+            ];
+            http_response_code(201); // Created
+        } else {
+            // Database error
+            $response = [
+                'msg' => 'Error updating author: ' . mysqli_error($connection)
+            ];
+            http_response_code(500); // Internal Server Error
+        }
+        echo json_encode($response);
+    } else {
+        $response = ['msg' => 'Invalid request.'];
+        echo json_encode($response);
+        http_response_code(400); // Bad Request
+    } 
+}  else if ($method == 'DELETE') {
+    $param = $_REQUEST['p'];
+    $param = rtrim($param, "/");
+    $uri = explode('/', $param);
+    $cnt = count($uri);
+
+    if ($cnt == 3 && $uri[0] == $api && $uri[1] == $entity) {
+        $authId = $uri[2];
+
+        $query = "UPDATE $entity SET deleted = '1' WHERE author_id = '$authId'";
+
+        if (mysqli_query($connection, $query)) {
+            // Successful deletion
+            $response = [
+                'msg' => 'Author deleted successfully.',
+            ];
+            http_response_code(201); // Created
+        } else {
+            // Database error
+            $response = [
+                'msg' => 'Error deleting author: ' . mysqli_error($connection)
+            ];
+            http_response_code(500); // Internal Server Error
+        }
+        echo json_encode($response);
+    }
+
 } else {
     // Invalid method
     $response = [

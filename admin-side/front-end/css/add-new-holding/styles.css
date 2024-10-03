@@ -118,7 +118,7 @@ body {
     color: #C07500;
 }
 
-.input-group-append .input-group-text {
+.input-group-append .input-group-text{
     border-radius: 0 0 0 0;
     background-color: #ffffff;
     border: 2px solid #cecdcd;
@@ -130,8 +130,7 @@ body {
     display: flex;
     justify-content: center;
 }
-
-.subject-form-container{
+.holding-form-container{
     width: 50%;
     margin: 30px 30px 130px 30px;
 }
@@ -157,21 +156,37 @@ body {
     margin-bottom: 15px;
 }
 
+.form-control{
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem; 
+    transition: border-color 0.2s ease-in-out; 
+}
+
+.form-control:focus{
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); 
+}
+
+.form-control:focus{
+    border-color: #80bdff; 
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 .form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: bold; 
+    margin-bottom: 0.5rem;
 }
 
-.form-control {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    transition: border-color 0.3s;
+.tagify {
+    height: 80px !important;
+    line-height: 80px;
+    overflow-y: auto;
 }
-
-.form-control:focus {
-    border-color: #007bff; /* Bootstrap primary color */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Bootstrap primary shadow */
+.tagify__input {
+    border: none;
+    outline: none; 
+    flex: 1 !important; 
+    min-width: 200px;
 }
 
 .btn {
@@ -187,4 +202,13 @@ body {
 .btn-container{
     display: flex;
     justify-content: center;
+}
+
+select.form-control {
+    padding: 8px 8px; 
+    font-size: 1rem;
+    height: auto; 
+    line-height: 2; 
+    box-shadow: none;         
+    border: 1px solid #ced4da !important;
 }

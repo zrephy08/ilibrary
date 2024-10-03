@@ -32,10 +32,10 @@ $(document).ready(function () {
                 '<td>' + author.lname + '</td>' +
                 '<td>' + author.bio + '</td>' +
                 '<td>' +
-                    '<a href="#" class="action-btn edit-btn" data-id="' + author.auth_id + '" title="Edit">' +
+                    '<a href="#" class="action-btn edit-btn" data-id="' + author.author_id + '" title="Edit">' +
                         '<i class="bi bi-pencil-fill"></i>' +
                     '</a> ' +
-                    '<a href="#" class="action-btn delete-btn" data-id="' + author.auth_id + '" title="Delete">' +
+                    '<a href="#" class="action-btn delete-btn" data-id="' + author.author_id + '" title="Delete">' +
                         '<i class="bi bi-trash-fill"></i>' +
                     '</a>' +
                 '</td>' +
