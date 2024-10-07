@@ -2,7 +2,7 @@ $(document).ready(function () {
     const CholdId = getCookie('hold_id'); // Use quotes for the cookie name
     let tagify;
     $.ajax({
-        url: `http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holding/${CholdId}`,
+        url: `http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings/${CholdId}`,
         type: 'GET',
         success: function (response) {
             // Populate the form fields with the retrieved subject data
@@ -82,7 +82,7 @@ $(document).ready(function () {
 
         // Send PUT request using AJAX
         $.ajax({
-            url: `http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holding/${CholdId}`,
+            url: `http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings/${CholdId}`,
             type: 'PUT',
             data: JSON.stringify(formData),
             contentType: 'application/json',

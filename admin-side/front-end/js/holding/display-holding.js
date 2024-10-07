@@ -8,39 +8,41 @@ $(document).ready(function () {
 
     // AJAX request to get holdings from the API
     $.ajax({
-        url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holding',
+        url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings',
         type: 'GET',
         success: function (data) {
             holdingsData = data;
-            getAdditionalData(); // Get authors and publishers data after holdings
+
+            $.when(getAuthorsData(), getPublishersData()).done(function () {
+                displayHoldings(currentPage);
+                setupPagination(holdingsData.length);
+            });
         },
         error: function (xhr, status, error) {
             console.error('Error fetching holdings:', error);
         }
     });
 
-    // Function to get authors and publishers data
-    function getAdditionalData() {
-        // AJAX request to get authors data
-        $.ajax({
+    // Function to get authors and publishers data using promises
+    function getAuthorsData() {
+        return $.ajax({
             url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
             type: 'GET',
             success: function (data) {
                 authorsData = mapAuthorsData(data);
-                checkAllDataLoaded();
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching authors:', error);
             }
         });
+    }
 
-        // AJAX request to get publishers data
-        $.ajax({
+    function getPublishersData() {
+        return $.ajax({
             url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers',
             type: 'GET',
             success: function (data) {
                 publishersData = mapPublishersData(data);
-                checkAllDataLoaded();
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching publishers:', error);
@@ -66,27 +68,18 @@ $(document).ready(function () {
         return publishersMap;
     }
 
-    // Check if all data (holdings, authors, publishers) is loaded
-    function checkAllDataLoaded() {
-        if (Object.keys(authorsData).length > 0 && Object.keys(publishersData).length > 0) {
-            displayHoldings(currentPage);
-            setupPagination(holdingsData.length);
-        }
-    }
-
     // Function to display holdings on the current page
-    function displayHoldings(page) {
+    function displayHoldings(page, data = holdingsData) {
         $('#holding-table tbody').empty();
         let start = (page - 1) * rowsPerPage;
         let end = start + rowsPerPage;
-        let holdingsToShow = holdingsData.slice(start, end);
-
+        let holdingsToShow = data.slice(start, end);
+    
         // Append each holding as a row in the table
         $.each(holdingsToShow, function (index, holding) {
-            
             let authorName = authorsData[holding.author_id] || 'Unknown';
             let publisherName = publishersData[holding.pub_id] || 'Unknown';
-
+    
             $('#holding-table tbody').append(
                 '<tr>' +
                 '<td>' + holding.hold_id + '</td>' +
@@ -141,15 +134,15 @@ $(document).ready(function () {
         // Page number button click handler
         $('.page-btn[data-page]').click(function () {
             currentPage = parseInt($(this).data('page'));
-            displaySubjects(currentPage);
-            setupPagination(subjectsData.length); // Refresh pagination with the current page set
+            displayHoldings(currentPage);
+            setupPagination(holdingsData.length); // Refresh pagination with the current page set
         });
     }
 
     // Update the Next, Previous, and active page buttons
     function updatePaginationButtons(totalPages) {
         $('#prev-btn').prop('disabled', currentPage === 1);
-        $('#next-btn').prop('disabled', currentPage === totalPages);
+        $('#next-btn').prop('disabled', currentPage >= totalPages);
 
         // Highlight the current page button
         $('.page-btn[data-page]').removeClass('active');
@@ -160,32 +153,38 @@ $(document).ready(function () {
     $('#prev-btn').click(function () {
         if (currentPage > 1) {
             currentPage--;
-            displaySubjects(currentPage);
-            setupPagination(subjectsData.length);
+            displayHoldings(currentPage);
+            setupPagination(holdingsData.length);
         }
     });
 
     // Next button click handler
     $('#next-btn').click(function () {
-        if (currentPage < Math.ceil(subjectsData.length / rowsPerPage)) {
+        if (currentPage < Math.ceil(holdingsData.length / rowsPerPage)) {
             currentPage++;
-            displaySubjects(currentPage);
-            setupPagination(subjectsData.length);
+            displayHoldings(currentPage);
+            setupPagination(holdingsData.length);
         }
     });
 
     // Search functionality
     $('.form-control').on('input', function () {
         const searchTerm = $(this).val().toLowerCase();
-        const filteredSubjects = subjectsData.filter(function (subject) {
-            return subject.sub_name.toLowerCase().includes(searchTerm) ||
-                   subject.sub_desc.toLowerCase().includes(searchTerm);
+
+        const filteredHoldings = holdingsData.filter(function (holding) {
+            const authorName = authorsData[holding.author_id];
+            const publisherName = publishersData[holding.pub_id];
+    
+            return holding.title.toLowerCase().includes(searchTerm) ||
+                   authorName.toLowerCase().includes(searchTerm) ||
+                   publisherName.toLowerCase().includes(searchTerm) ||
+                   holding.hold_id.toLowerCase().includes(searchTerm);
         });
+    
 
         // Reset pagination for the filtered data
         currentPage = 1;
-        subjectsData = filteredSubjects;
-        displaySubjects(currentPage);
-        setupPagination(subjectsData.length);
+        displayHoldings(currentPage, filteredHoldings);
+        setupPagination(holdingData.length);
     });
 });

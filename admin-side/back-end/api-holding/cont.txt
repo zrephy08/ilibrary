@@ -1,1 +1,0 @@
-[{"value":"ITP 14","id":"0001","__isValid":true,"__tagId":"e5adaae7-a44e-4d51-8965-043849d79a74"},{"value":"ITP 15","id":"0002","__isValid":true,"__tagId":"8a92a9ea-801a-4e62-ab21-aaaffa20b08c"}]Subjects are not in an array format.

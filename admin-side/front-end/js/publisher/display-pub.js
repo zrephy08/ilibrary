@@ -85,7 +85,7 @@ $(document).ready(function () {
     // Update the Next, Previous, and active page buttons
     function updatePaginationButtons(totalPages) {
         $('#prev-btn').prop('disabled', currentPage === 1);
-        $('#next-btn').prop('disabled', currentPage === totalPages);
+        $('#next-btn').prop('disabled', currentPage >= totalPages);
 
         // Highlight the current page button
         $('.page-btn[data-page]').removeClass('active');

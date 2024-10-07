@@ -25,14 +25,13 @@ $(document).ready(function() {
 
         // Send AJAX request
         $.ajax({
-            url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holding', // Change to your API endpoint or PHP script path
+            url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings', // Change to your API endpoint or PHP script path
             type: "POST",
             data: formData,
             dataType: "json",
             success: function(response) {
                 alert('Holding added successfully!');
-                // Optionally, redirect or clear form fields after success
-                $('#addHoldingForm')[0].reset();
+                window.location.replace("holdings.html");
             },
             error: function(xhr, status, error) {
                 console.error('Error occurred:', xhr, status, error);

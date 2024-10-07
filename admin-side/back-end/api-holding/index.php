@@ -4,7 +4,7 @@ header('Access-Control-Allow-Methods: GET, POST, DELETE, PUT');
 header('Content-type: application/json');
 
 $api = "v1";
-$entity = "holding";
+$entity = "holdings";
 
 include '../db_connection.php';
 
@@ -159,29 +159,57 @@ if ($method == 'POST') {
         // Decode the JSON to an associative array
         $_PUT = json_decode($json , true);
 
+        $holdId = $_PUT['hold_id'];
         $title = $_PUT['title'];
-        $title = $_PUT['title'];
-        $subname = $_PUT['subname'];
-        $subdesc = $_PUT['subdesc'];
+        $isbn = $_PUT['isbn'];
+        $edition = $_PUT['edition'];
+        $accssNum = $_PUT['accss_num'];
+        $shlfNum = $_PUT['shelf_num'];
+        $pubDate = $_PUT['published_date'];
+        $authId = $_PUT['author_id'];
+        $format = $_PUT['format'];
+        $copies = $_PUT['copies'];
+        $avCopies = $_PUT['av_copies'];
+        $pubId = $_PUT['pub_id'];
+        $subjects = $_PUT['subjects'];
         
-        // if (mysqli_query($connection, $query)) {
-        //     // Successful insertion
-        //     $response = [
-        //         'msg' => 'Subject updated successfully.',
-        //     ];
-        //     http_response_code(201); // Created
-        // } else {
-        //     // Database error
-        //     $response = [
-        //         'msg' => 'Error updating subject: ' . mysqli_error($connection)
-        //     ];
-        //     http_response_code(500); // Internal Server Error
-        // }
+        // Prepare the SQL update query
+        $query = "UPDATE $entity SET 
+                    title = '$title', 
+                    isbn = '$isbn', 
+                    edition = '$edition', 
+                    accss_num = '$accssNum', 
+                    shelf_num = '$shlfNum', 
+                    published_date = '$pubDate', 
+                    author_id = '$authId', 
+                    format = '$format', 
+                    copies = '$copies', 
+                    av_copies = '$avCopies', 
+                    pub_id = '$pubId', 
+                    subjects = '$subjects'
+                  WHERE hold_id = '$hold_id'";
+
+        // Execute the query
+        if (mysqli_query($connection, $query)) {
+            // Successful update
+            $response = [
+                'msg' => 'Holding updated successfully.'
+            ];
+            echo json_encode($response);
+            http_response_code(200); // OK
+        } else {
+            // Database error
+            $response = [
+                'msg' => 'Error updating holding: ' . mysqli_error($connection)
+            ];
+            echo json_encode($response);
+            http_response_code(500); // Internal Server Error
+        }
     } else {
         $response = ['msg' => 'Invalid request.'];
+        echo json_encode($response);
         http_response_code(400); // Bad Request
     }
-    //echo json_encode($response);
 } else if ($method == 'DELETE') {
     $param = $_REQUEST['p'];
     $param = rtrim($param, "/");
@@ -189,20 +217,20 @@ if ($method == 'POST') {
     $cnt = count($uri);
 
     if ($cnt == 3 && $uri[0] == $api && $uri[1] == $entity) {
-        $subId = $uri[2];
+        $holdId = $uri[2];
 
-        $query = "UPDATE $entity SET deleted = '1' WHERE sub_id = '$subId'";
+        $query = "UPDATE $entity SET deleted = '1' WHERE hold_id = '$holdId'";
 
         if (mysqli_query($connection, $query)) {
             // Successful deletion
             $response = [
-                'msg' => 'Subject deleted successfully.',
+                'msg' => 'Holding deleted successfully.',
             ];
             http_response_code(201); // Created
         } else {
             // Database error
             $response = [
-                'msg' => 'Error deleting subject: ' . mysqli_error($connection)
+                'msg' => 'Error deleting holding: ' . mysqli_error($connection)
             ];
             http_response_code(500); // Internal Server Error
         }
