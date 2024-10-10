@@ -11,7 +11,8 @@ $(document).ready(function(){
 
         // Send POST request
         $.ajax({
-            url: "http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors", // Ensure the URL is correct
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-author/v1/authors`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
             type: "POST",
             data: formData,
             dataType: "json",

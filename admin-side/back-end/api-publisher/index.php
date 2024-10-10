@@ -30,12 +30,14 @@ if ($method == 'POST') {
             $response = [
                 'msg' => 'Publisher added successfully.',
             ];
+            echo json_encode($response);
             http_response_code(201); // Created
         } else {
             // Database error
             $response = [
                 'msg' => 'Error inserting user: ' . mysqli_error($connection)
             ];
+            echo json_encode($response);
             http_response_code(500); // Internal Server Error
         }
     } else {
@@ -43,6 +45,7 @@ if ($method == 'POST') {
         $response = [
             'msg' => 'Invalid request.'
         ];
+        echo json_encode($response);
         http_response_code(400); // Bad Request
     }
 } else if($method == 'GET'){

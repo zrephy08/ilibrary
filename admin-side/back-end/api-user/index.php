@@ -16,6 +16,7 @@ if ($method == 'POST') {
     $uri = explode('/', $param);
     $cnt = count($uri);
     if ($cnt == 2 && $uri[0] == $api && $uri[1] == $entity) {
+
         // Retrieve username and password from POST data
         $idnum = $_POST['idnum'];
         $fname = $_POST['fname'];
@@ -43,15 +44,42 @@ if ($method == 'POST') {
             ];
             http_response_code(500); // Internal Server Error
         }
+        echo json_encode($response);
     } else {
         // Invalid request
         $response = [
             'msg' => 'Invalid request.'
         ];
+        echo json_encode($response);
         http_response_code(400); // Bad Request
     }
 } else if($method == 'GET'){
+    $param = $_REQUEST['p'];
+    $param = rtrim($param, "/");
+    $uri = explode('/', $param);
+    $cnt = count($uri);
     
+    if ($cnt == 2 && $uri[0] == $api && $uri[1] == $entity) {
+
+        $query = "SELECT * FROM $entity WHERE deleted = '0'";
+        
+        $result = mysqli_query($connection, $query);
+        
+        if ($result) {
+            $users = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $users[] = $row;
+            }
+            echo json_encode($users);
+            http_response_code(200); // OK
+        } else {
+            $response = [
+                'msg' => 'Error fetching users: ' . mysqli_error($connection)
+            ];
+            echo json_encode($response);
+            http_response_code(500); // Internal Server Error
+        }
+    }
 } else {
     // Invalid method
     $response = [

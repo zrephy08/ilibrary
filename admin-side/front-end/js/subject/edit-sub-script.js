@@ -1,7 +1,8 @@
 $(document).ready(function () {
     const CsubId = getCookie('sub_id'); // Use quotes for the cookie name
     $.ajax({
-        url: `http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects/${CsubId}`,
+        url: `https://ilibrary.zreky.muccs.host/back-end/api-subject/v1/subjects/${CsubId}`,
+        //url: `http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects/${CsubId}`,
         type: 'GET',
         success: function (response) {
             // Populate the form fields with the retrieved subject data
@@ -32,7 +33,8 @@ $(document).ready(function () {
 
         // Send PUT request using AJAX
         $.ajax({
-            url: `http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects/${CsubId}`,
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-subject/v1/subjects/${CsubId}`,
+            //url: `http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects/${CsubId}`,
             type: 'PUT',
             data: JSON.stringify(formData),
             contentType: 'application/json',

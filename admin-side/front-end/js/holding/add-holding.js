@@ -25,7 +25,8 @@ $(document).ready(function() {
 
         // Send AJAX request
         $.ajax({
-            url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings', // Change to your API endpoint or PHP script path
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-holding/v1/holdings`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings',
             type: "POST",
             data: formData,
             dataType: "json",

@@ -3,7 +3,8 @@ $(document).ready(function () {
     // Function to fetch authors and populate the select dropdown
     function fetchAuthors() {
         $.ajax({
-            url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-author/v1/authors`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
             method: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -27,7 +28,8 @@ $(document).ready(function () {
     // Function to fetch publishers and populate the select dropdown
     function fetchPublishers() {
         $.ajax({
-            url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers',
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-publisher/v1/publishers`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers',
             method: 'GET',
             dataType: 'json',
             success: function (data) {

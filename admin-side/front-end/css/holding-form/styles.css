@@ -1,0 +1,206 @@
+    body {
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        background-color: #eeeff0;
+    }
+
+/* ==========================================================================
+STYLE FOR VERTICAL NAVIGATION BAR
+========================================================================== */
+
+    .nav-sidebar {
+        width: 250px;
+        background-color: #FEB440;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        padding-bottom: 70px;
+    }
+    .logo-container {
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .logo {
+        max-width: 60%;
+        height: auto;
+        border-radius: 4px;
+    }
+    .nav-sidebar a {
+        color: black;
+        text-align: left;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+    }
+    .nav-sidebar a i {
+        margin-right: 10px;
+        font-size: 20px;
+    }
+    .nav-sidebar a:hover {
+        color: white;
+        background-color: #C07500;
+    }
+    .nav-sidebar a.active {
+        color: white;
+        background-color: #C07500;
+    }
+
+/* ==========================================================================
+STYLE FOR THE BODY CONTENT
+========================================================================== */
+
+    .main-content {
+        flex-grow: 1;
+        padding: 0;
+        display: flex;
+        overflow: auto; 
+        flex-direction: column;
+    }
+
+/* ==========================================================================
+STYLE FOR TOP NAV BAR
+========================================================================== */
+
+    .top-nav {
+        position: relative;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        background-color: #eeeff0;
+        padding: 60px 50px 25px;
+        border-bottom: 2px solid #cecdcd;
+    }
+    .top-nav-icons {
+        display: flex;
+        position: relative;
+        align-items: center;
+        margin-right: 40px;
+    }
+    .top-nav-icons img{
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+    }
+    .dropdown-menu {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        margin-top: 5px;
+        width: 80px;
+    }     
+    .dropdown-menu ul {
+        list-style-type: none; 
+        padding: 0;
+        margin: 0;
+    }
+    .dropdown-menu li {
+        padding: 10px;
+    }
+    .dropdown-menu li a {
+        text-decoration: none;
+        color: black;
+    }
+    .dropdown-menu li:hover {
+        background-color: #f0f0f0;
+    }
+
+/* ==========================================================================
+STYLE FOR THE MAIN CONTENT
+========================================================================== */
+
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+    .holding-form-container{
+        width: 50%;
+        margin: 30px 30px 130px 30px;
+    }
+    .header{
+        padding: 20px;
+        background-color: #FEB440;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;  
+    }
+    .header h2{
+        padding-top: 5px;
+        padding-left: 40px;
+    }
+    .form-container {
+        padding: 50px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control{
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem; 
+        transition: border-color 0.2s ease-in-out; 
+    }
+
+    .form-control:focus{
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); 
+    }
+
+    .form-control:focus{
+        border-color: #80bdff; 
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    .form-group label {
+        font-weight: bold; 
+        margin-bottom: 0.5rem;
+    }
+
+    .tagify {
+        height: 80px !important;
+        line-height: 80px;
+        overflow-y: auto;
+    }
+    .tagify__input {
+        border: none;
+        outline: none; 
+        flex: 1 !important; 
+        min-width: 200px;
+    }
+
+    .btn {
+        background-color: #FEB440; /* Bootstrap primary color */
+        color: black;
+        margin-top: 20px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        min-width: 20%;
+    }
+    .btn-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    select.form-control {
+        padding: 8px 8px; 
+        font-size: 1rem;
+        height: auto; 
+        line-height: 2; 
+        box-shadow: none;         
+        border: 1px solid #ced4da !important;
+    }

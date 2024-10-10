@@ -55,18 +55,40 @@
                     </button>
                 </div>
                 
-                <div class="">
-                    
+                <div class="table-container">
+                    <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>Profile Picture</th>
+                                <th>Admin ID</th>
+                                <th>Admin name</th>
+                                <th>Admin email</th>
+                                <th>Admin status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Subjects will be appended here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination Controls -->
+                <div id="pagination" class="pagination-container">
+                    <button id="prev-btn" class="page-btn" disabled>Previous</button>
+                    <span id="page-numbers"></span>
+                    <button id="next-btn" class="page-btn">Next</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/get-set-cookie.js"></script>
+    <script src="js/user/display-user.js"></script>
     <!-- <script src="js/check-cookie.js"></script> -->
     <script>
         $('#add-user-btn').click(function() {

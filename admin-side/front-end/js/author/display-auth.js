@@ -5,7 +5,8 @@ $(document).ready(function () {
 
     // AJAX request to get publisher from the API
     $.ajax({
-        url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
+        url: `https://ilibrary.zreky.muccs.host/back-end/api-author/v1/authors`,
+        //url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
         type: 'GET',
         success: function (data) {
             authorData = data;

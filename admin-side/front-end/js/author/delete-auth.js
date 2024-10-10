@@ -6,7 +6,8 @@ $(document).ready(function () {
         if (confirm("Are you sure you want to delete this author?")) {
             // Send AJAX DELETE request
             $.ajax({
-                url: `http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors/${authId}`,
+                url: `https://ilibrary.zreky.muccs.host/back-end/api-author/v1/authors/${authId}`,
+                //url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors/${authId}',
                 type: 'DELETE',
                 success: function (response) {
                     alert(response.msg);

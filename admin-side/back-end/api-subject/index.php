@@ -137,6 +137,7 @@ if ($method == 'POST') {
             $response = [
                 'msg' => 'Subject updated successfully.',
             ];
+            file_put_contents('test.txt', 'worked');
             http_response_code(201); // Created
         } else {
             // Database error

@@ -7,7 +7,8 @@ $(document).ready(function () {
         if (confirm("Are you sure you want to delete this holding?")) {
             // Send AJAX DELETE request
             $.ajax({
-                url: `http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings/${holdId}`,
+                url: `https://ilibrary.zreky.muccs.host/back-end/api-holding/v1/holdings/${holdId}`,
+                //url: `http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings/${holdId}`,
                 type: 'DELETE',
                 success: function (response) {
                     console.log(response);

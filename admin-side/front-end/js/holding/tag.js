@@ -6,7 +6,8 @@ $(document).ready(function () {
     // Function to load subjects from the database
     function loadSubjects() {
         $.ajax({
-            url: 'http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects',  // Your API endpoint to get subjects
+            url: 'https://ilibrary.zreky.muccs.host/back-end/api-subject/v1/subjects',
+            //url: "http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects",  // Your API endpoint to get subjects
             method: 'GET',
             success: function (data) {
                 // Assuming the response is an array of subjects

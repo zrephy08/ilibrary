@@ -1,275 +1,281 @@
-body {
-    display: flex;
-    height: 100vh;
-    margin: 0;
-    background-color: #eeeff0;
-}
+    body {
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        background-color: #eeeff0;
+    }
 
-/* Vertical navigation bar */
-.nav-sidebar {
+/* ==========================================================================
+   STYLE FOR VERTICAL NAVIGATION BAR
+   ========================================================================== */
+
+   .nav-sidebar {
     width: 250px;
     background-color: #FEB440;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     padding-bottom: 70px;
-}
+    }
+    .logo-container {
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .logo {
+        max-width: 60%;
+        height: auto;
+        border-radius: 4px;
+    }
+    .nav-sidebar a {
+        color: black;
+        text-align: left;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+    }
+    .nav-sidebar a i {
+        margin-right: 10px;
+        font-size: 20px;
+    }
+    .nav-sidebar a:hover {
+        color: white;
+        background-color: #C07500;
+    }
+    .nav-sidebar a.active {
+        color: white;
+        background-color: #C07500;
+    }
 
-/* Logo container */
-.logo-container {
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-}
+/* ==========================================================================
+   STYLE FOR THE BODY CONTENT
+   ========================================================================== */
 
-.logo {
-    max-width: 60%;
-    height: auto;
-    border-radius: 4px;
-}
+    .main-content {
+        flex-grow: 1;
+        padding: 0;
+        display: flex;
+        overflow: auto; 
+        flex-direction: column;
+    }
 
-/* Navigation links */
-.nav-sidebar a {
-    color: black;
-    text-align: left;
-    padding: 15px;
-    text-decoration: none;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-}
+/* ==========================================================================
+   STYLE FOR TOP NAV BAR
+   ========================================================================== */
 
-.nav-sidebar a i {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.nav-sidebar a:hover {
-    color: white;
-    background-color: #C07500;
-}
-
-/* Active link style */
-.nav-sidebar a.active {
-    color: white;
-    background-color: #C07500;
-}
-
-/* Main content area */
-.main-content {
-    flex-grow: 1;
-    padding: 0;
-    display: flex;
-    overflow: auto; 
-    flex-direction: column;
-}
-
-/* Top navigation bar */
-.top-nav {
+   .top-nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #eeeff0;
     padding: 60px 50px 25px;
     border-bottom: 2px solid #cecdcd;
-}
-
-/* Search bar in top navigation */
-.top-search-bar {
-    display: flex;
-    flex-grow: 1;
-    max-width: 40%; /* Set the maximum width of the search bar */
-}
-
-.top-search-bar .input-group {
-    width: 40%;
-}
-
-.top-search-bar .form-control {
-    border-radius: 0 0 0 0;
-    border: 2px solid #cecdcd;  
-    border-left: 0px;
-    padding: 15px 15px 15px 5px;
-    transition: border-color 0.3s ease-in-out;
-    height: 50px;
-    box-shadow: none; /* Remove default shadow */
-}
-
-.top-search-bar .form-control:focus {
-    outline: none;
-    box-shadow: none; /* Ensures no shadow when focused */
-}
-
-/* Notification and profile icons */
-.top-nav-icons {
-    display: flex;
-    align-items: center;
-}
-
-.top-nav-icons .top-icon {
-    color: #343a40;
-    font-size: 24px;
-    margin-left: 20px;
-    text-decoration: none;
-}
-
-.top-nav-icons .top-icon:hover {
-    color: #C07500;
-}
-
-/* Input group append styling */
-.input-group-append .input-group-text {
-    border-radius: 0 0 0 0;
-    background-color: #ffffff;
-    border: 2px solid #cecdcd;
-    border-right: 0px;
-    height: 50px;
-}
-
-/* Content area */
-.author-table-container{
-    margin: 30px;
-    background-color: white;
-    margin-bottom: 200px;
-}
-.header{
-    padding: 20px;
-    background-color: #FEB440;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;  
-}
-.header h2{
-    padding-top: 5px;
-    padding-left: 40px;
-}
-.add-author-btn {
-    margin-right: 40px;
-    margin-left: 40px;
-    padding: 10px 20px;
-    flex-direction: row;
-    background-color: #f3f3f3;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex; /* Align icon and text */
-    align-items: center; /* Center icon and text vertically */
-}
-.add-author-btn i {
-    margin-right: 15px;
-    font-size: 25px;
-}
-.add-author-btn p {
-    margin: 0; /* Remove default margin */
-    line-height: 1; /* Optional: Adjust line height */
-    font-size: 16px; /* Optional: Set font size */
-}
-.add-author-btn:hover {
-    color: black;
-    background-color: #cfcfcf; /* Darken on hover */
-}
-
-/* ---- Styling the Table ----*/
-.table-container {
-    padding: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-table {
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 25px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-}
-
-th, td {
-    padding: 20px;
-    border-top: 2px solid #cecdcd;
-    border-bottom: 2px solid #cecdcd;
-    text-align: left;
-}
-
-th {
-    font-weight: bold;
-}
-
-/* Slightly different background color for every other row */
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Simple button styling */
-.action-btn {
-    display: inline-block;
-    padding: 5px;
-    margin: 0 5px;
-    color: #007bff; /* Default color for buttons (Bootstrap blue) */
-    font-size: 18px; /* Adjust the size of the icons */
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-}
-
-.action-btn:hover {
-    color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.1); /* Slight zoom-in effect on hover */
-}
-
-.edit-btn i {
-    color: #17a2b8; /* Blue color for the edit icon */
-}
-
-.edit-btn:hover i {
-    color: #138496; /* Slightly darker blue on hover */
-}
-
-.delete-btn i {
-    color: #dc3545; /* Red color for the delete icon */
-}
-
-.delete-btn:hover i {
-    color: #c82333; /* Darker red on hover */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    th, td {
-        padding: 8px;
     }
+    .top-nav-icons {
+        display: flex;
+        position: relative;
+        align-items: center;
+        margin-right: 40px;
+    }
+    .top-nav-icons img{
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+    }
+    .dropdown-menu {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        margin-top: 5px;
+        width: 80px;
+    }     
+    .dropdown-menu ul {
+        list-style-type: none; /* Remove default list styling */
+        padding: 0;
+        margin: 0;
+    }
+    .dropdown-menu li {
+        padding: 10px;
+    }
+    .dropdown-menu li a {
+        text-decoration: none; /* Remove underline */
+        color: black;
+    }
+    .dropdown-menu li:hover {
+        background-color: #f0f0f0; /* Highlight on hover */
+    }
+
+
+    /* ----- Search style ----- */
+
+    .top-search-bar {
+        display: flex;
+        flex-grow: 1;
+        max-width: 40%;
+    }
+    .top-search-bar .input-group {
+        width: 40%;
+    }
+    .top-search-bar .form-control {
+        border-radius: 0 0 0 0;
+        border: 2px solid #cecdcd;  
+        border-left: 0px;
+        padding: 15px 15px 15px 5px;
+        transition: border-color 0.3s ease-in-out;
+        height: 50px;
+        box-shadow: none;
+    }
+    .top-search-bar .form-control:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    .input-group-append .input-group-text {
+        border-radius: 0 0 0 0;
+        background-color: #ffffff;
+        border: 2px solid #cecdcd;
+        border-right: 0px;
+        height: 50px;
+    }
+
+/* ==========================================================================
+   STYLE FOR THE MAIN CONTENT
+   ========================================================================== */
+
+    .author-table-container{
+        margin: 30px;
+        background-color: white;
+        margin-bottom: 200px;
+    }
+
+    /* ----- Header style ----- */
+
+    .header{
+        padding: 20px;
+        background-color: #FEB440;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;  
+    }
+    .header h2{
+        padding-top: 5px;
+        padding-left: 40px;
+    }
+    .add-author-btn {
+        margin-right: 40px;
+        margin-left: 40px;
+        padding: 10px 20px;
+        flex-direction: row;
+        background-color: #f3f3f3;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex; 
+        align-items: center;
+    }
+    .add-author-btn i {
+        margin-right: 15px;
+        font-size: 25px;
+    }
+    .add-author-btn p {
+        margin: 0;
+        line-height: 1; 
+        font-size: 16px;
+    }
+    .add-author-btn:hover {
+        color: black;
+        background-color: #cfcfcf;
+    }
+
+    /* ----- Table style ----- */
 
     .table-container {
+        padding: 0;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-}
-.pagination-container {
-    display: flex;
-    justify-content: right;
-    padding-bottom: 30px;
-    padding-right: 20px;
-}
+    table {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+    th, td {
+        padding: 20px;
+        border-top: 2px solid #cecdcd;
+        border-bottom: 2px solid #cecdcd;
+        text-align: left;
+    }
+    th {
+        font-weight: bold;
+    }
 
-.page-btn {
-    background-color: #FEB440;
-    color: black;
-    border: none;
-    padding: 5px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-}
+    /* ----- Style for the actions buttons ----- */
 
-.page-btn[disabled] {
-    background-color: #cec6b8;
-    cursor: not-allowed;
-}
+    .action-btn {
+        display: inline-block;
+        padding: 5px;
+        margin: 0 5px;
+        color: #007bff; 
+        font-size: 18px;
+        cursor: pointer;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .action-btn:hover {
+        color: #0056b3; 
+        transform: scale(1.1); 
+    }
+    .edit-btn i {
+        color: #17a2b8;     
+    }
+    .edit-btn:hover i {
+        color: #138496;
+    }
+    .delete-btn i {
+        color: #dc3545; 
+    }
 
-.page-btn.active {
-    background-color: #C07500;
-    color: white;
-    pointer-events: none;
-}
+    .delete-btn:hover i {
+        color: #c82333;
+    }
+
+    /* ----- Style for the pagination ----- */
+
+    .pagination-container {
+        display: flex;
+        justify-content: right;
+        padding-bottom: 30px;
+        padding-right: 20px;
+    }
+    .page-btn {
+        background-color: #FEB440;
+        color: black;
+        border: none;
+        padding: 5px 20px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .page-btn[disabled] {
+        background-color: #cec6b8;
+        cursor: not-allowed;
+    }
+    .page-btn.active {
+        background-color: #C07500;
+        color: white;
+        pointer-events: none;
+    }

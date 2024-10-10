@@ -7,7 +7,8 @@ $(document).ready(function () {
         if (confirm("Are you sure you want to delete this subject?")) {
             // Send AJAX DELETE request
             $.ajax({
-                url: `http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects/${subId}`,
+                url: `https://ilibrary.zreky.muccs.host/back-end/api-subject/v1/subjects/${subId}`,
+                //url: `http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects/${subId}`,
                 type: 'DELETE',
                 success: function (response) {
                     console.log(response);

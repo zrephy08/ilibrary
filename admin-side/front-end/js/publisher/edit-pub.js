@@ -1,7 +1,8 @@
 $(document).ready(function () {
     const CpubId = getCookie('pub_id'); // Use quotes for the cookie name
     $.ajax({
-        url: `http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers/${CpubId}`,
+        url: `https://ilibrary.zreky.muccs.host/back-end/api-publisher/v1/publishers/${CpubId}`,
+        //url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers/${CpubId}',
         type: 'GET',
         success: function (response) {
             $('#pub_id').val(response[0].pubId);
@@ -37,7 +38,8 @@ $(document).ready(function () {
 
         // Send PUT request using AJAX
         $.ajax({
-            url: `http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers/${CpubId}`,
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-publisher/v1/publishers/${CpubId}`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers/${CpubId}',
             type: 'PUT',
             data: JSON.stringify(formData),
             contentType: 'application/json',

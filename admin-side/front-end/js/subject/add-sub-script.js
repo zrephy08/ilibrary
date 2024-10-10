@@ -10,7 +10,8 @@ $(document).ready(function(){
 
         // Send POST request
         $.ajax({
-            url: "http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects", // Ensure the URL is correct
+            url: 'https://ilibrary.zreky.muccs.host/back-end/api-subject/v1/subjects',
+            //url: "http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects", // Ensure the URL is correct
             type: "POST",
             data: formData,
             dataType: "json",

@@ -6,4 +6,4 @@ function checkCookieAndRedirect(cookieName, loginPageURL) {
     }
 }
 
-checkCookieAndRedirect("cookie_admin_id", "../index.html");
+checkCookieAndRedirect("cookie-adminId", "../index.html");

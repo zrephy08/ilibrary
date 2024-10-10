@@ -12,8 +12,9 @@ $(document).ready(function(){
 
         // Send POST request
         $.ajax({
-            url: "http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers", // Ensure the URL is correct
-            type: "POST",
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-publisher/v1/publishers`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers',
+            type: "POST",  
             data: formData,
             dataType: "json",
             success: function(response){

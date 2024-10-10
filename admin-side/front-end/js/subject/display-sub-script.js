@@ -5,7 +5,8 @@ $(document).ready(function () {
 
     // AJAX request to get subjects from the API
     $.ajax({
-        url: 'http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects',
+        url: `https://ilibrary.zreky.muccs.host/back-end/api-subject/v1/subjects`,
+        //url: 'http://localhost/ilibrary/admin-side/back-end/api-subject/v1/subjects',
         type: 'GET',
         success: function (data) {
             subjectsData = data;

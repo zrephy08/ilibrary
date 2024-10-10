@@ -1,7 +1,8 @@
 $(document).ready(function () {
     const CauthId = getCookie('auth_id');
     $.ajax({
-        url: `http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors/${CauthId}`,
+        url: `https://ilibrary.zreky.muccs.host/back-end/api-author/v1/authors/${CauthId}`,
+        //url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors/${CauthId}',
         type: 'GET',
         success: function (response) {
             $('#auth_id').val(response[0].author_id);
@@ -34,7 +35,8 @@ $(document).ready(function () {
 
         // Send PUT request using AJAX
         $.ajax({
-            url: `http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors/${CauthId}`,
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-author/v1/authors/${CauthId}`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors/${CauthId}',
             type: 'PUT',
             data: JSON.stringify(formData),
             contentType: 'application/json',

@@ -8,7 +8,8 @@ $(document).ready(function () {
 
     // AJAX request to get holdings from the API
     $.ajax({
-        url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings',
+        url: `https://ilibrary.zreky.muccs.host/back-end/api-holding/v1/holdings`,
+        //url: 'http://localhost/ilibrary/admin-side/back-end/api-holding/v1/holdings',
         type: 'GET',
         success: function (data) {
             holdingsData = data;
@@ -26,7 +27,8 @@ $(document).ready(function () {
     // Function to get authors and publishers data using promises
     function getAuthorsData() {
         return $.ajax({
-            url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-author/v1/authors`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-author/v1/authors',
             type: 'GET',
             success: function (data) {
                 authorsData = mapAuthorsData(data);
@@ -39,7 +41,8 @@ $(document).ready(function () {
 
     function getPublishersData() {
         return $.ajax({
-            url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers',
+            url: `https://ilibrary.zreky.muccs.host/back-end/api-publisher/v1/publishers`,
+            //url: 'http://localhost/ilibrary/admin-side/back-end/api-publisher/v1/publishers',
             type: 'GET',
             success: function (data) {
                 publishersData = mapPublishersData(data);

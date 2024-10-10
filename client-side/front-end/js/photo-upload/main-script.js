@@ -17,7 +17,7 @@ $(document).ready(function() {
         };
         
         $('#progressText').text(`${stages[stage]} ${percentage}%`);
-        document.getElementById('loadingContainer').style.display = 'none';
+        //document.getElementById('loadingContainer').style.display = 'flex';
     }
 
     // PART OF TESTING
@@ -283,7 +283,7 @@ $(document).ready(function() {
             sessionStorage.setItem('matchedSubjects', JSON.stringify(matchedSubjects));
     
             await delay(2000);
-            //window.location.href = 'ocr-result.html'; // Uncomment for actual redirection
+            window.location.href = 'ocr-result.html'; // Uncomment for actual redirection
         } catch (error) {
             displayError('An error occurred during OCR. Please try again.');
             console.error('Error during OCR processing:', error);
